@@ -1,0 +1,47 @@
+.header {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-content: center;
+}
+
+.header img {
+    height: 100%;
+}
+
+.logo {
+    margin-left: 50px;
+    display: flex;
+    gap: 20%;
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.nav-logo {
+    max-width: 120px;
+}
+
+.navigation-bar {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 0 25px;
+    border-radius: 25px;
+    font-family: 'Courgette';
+}
+
+h1 {
+    font-family: 'Courgette';
+    font-size: 40px;
+    color: #93AD18;
+}
