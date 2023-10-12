@@ -70,7 +70,6 @@ const Table = () => {
     const rows = [];
 
     employeesList.map((e, index) => {
-        console.log(e)
         let employee = {
             id: index,
             firstname: e.firstname,
