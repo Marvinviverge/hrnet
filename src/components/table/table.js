@@ -4,7 +4,6 @@ import { TextField } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import { employeeSelector } from '@/redux/employeeSelector';
-import moment from 'moment';
 
 const Table = () => {
     const { employeesList } = useSelector(employeeSelector);
@@ -30,16 +29,19 @@ const Table = () => {
         e.department.toLowerCase().includes(searchText.toLowerCase()) ||
         e.street.toLowerCase().includes(searchText.toLowerCase()) ||
         e.city.toLowerCase().includes(searchText.toLowerCase()) ||
-        e.state.toLowerCase().includes(searchText.toLowerCase())
+        e.state.toLowerCase().includes(searchText.toLowerCase()) ||
+        e.zipcode.includes(searchText) ||
+        e.birth.includes(searchText) ||
+        e.startdate.includes(searchText)
     );
 
     const rows = filteredRows.map((e, index) => ({
         id: index,
         firstname: e.firstname,
         lastname: e.lastname,
-        startdate: moment(e.startdate).format('DD/MM/YYYY'),
+        startdate: e.startdate,
         department: e.department,
-        birth: moment(e.birth).format('DD/MM/YYYY'),
+        birth: e.birth,
         street: e.street,
         city: e.city,
         state: e.state,

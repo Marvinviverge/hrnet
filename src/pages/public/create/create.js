@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { departmentOptions } from '@/assets/datas/department.datas.js';
 import { statesOptions } from '@/assets/datas/state.datas.js';
+import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
@@ -36,12 +37,18 @@ const Create = () => {
         zipcode: Yup.number().required("Veuillez entrer un code postal"),
     });
 
+    const formatDateToISO = (date, timeZone) => {
+        return format(new Date(date), 'dd-MM-yyyy', { timeZone });
+    };
+
     const onSubmit = (data) => {
+        const timeZone = 'Europe/Paris';
+
         let newEmployee = {
             firstname: data.firstname,
             lastname: data.lastname,
-            birth: data.birth.toISOString(),
-            startdate: data.startdate.toISOString(),
+            birth: formatDateToISO(data.birth, timeZone),
+            startdate: formatDateToISO(data.startdate, timeZone),
             street: data.street,
             state: data.state,
             city: data.city,
@@ -75,7 +82,7 @@ const Create = () => {
                                 <label htmlFor="birth">Date of Birth</label>
                                 <Field className="wrapper-padding" name="birth" type="text" placeholder="Date of Birth" autoComplete="off">
                                     {({ field, form }) => (
-                                        <DatePicker className="wrapper-padding" placeholderText="Date of Birth" id="birth" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
+                                        <DatePicker dateFormat="dd/MM/yyyy" className="wrapper-padding" placeholderText="Date of Birth" id="birth" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
                                     )}
                                 </Field>
                                 <ErrorMessage name="birth" component="p" className='errorMessage' />
@@ -84,7 +91,7 @@ const Create = () => {
                                 <label htmlFor="startdate">Start Date</label>
                                 <Field className="wrapper-padding" name="startdate" type="text" placeholder="Start Date" autoComplete="off">
                                     {({ field, form }) => (
-                                        <DatePicker className="wrapper-padding" placeholderText="Start Date" id="startdate" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
+                                        <DatePicker dateFormat="dd/MM/yyyy" className="wrapper-padding" placeholderText="Start Date" id="startdate" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
                                     )}
                                 </Field>
                                 <ErrorMessage name="startdate" component="p" className='errorMessage' />
