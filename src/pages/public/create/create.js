@@ -32,7 +32,7 @@ const Create = () => {
         street: Yup.string().required("Veuillez entrer une adresse"),
         state: Yup.string().required("Veuillez sélectionner un état"),
         city: Yup.string().required("Veuillez entrer une adresse"),
-        department: Yup.string().required("Veuillez sélectionner un état"),
+        department: Yup.string().required("Veuillez sélectionner une section"),
         zipcode: Yup.number().required("Veuillez entrer un code postal"),
     });
 
@@ -40,8 +40,8 @@ const Create = () => {
         let newEmployee = {
             firstname: data.firstname,
             lastname: data.lastname,
-            birth: data.birth,
-            startdate: data.startdate,
+            birth: data.birth.toISOString(),
+            startdate: data.startdate.toISOString(),
             street: data.street,
             state: data.state,
             city: data.city,
@@ -139,7 +139,6 @@ const Create = () => {
                             <button className="save-button" type='submit'>Save</button>
                         </fieldset>
                     </fieldset>
-
                 </Form>
             </Formik>
         </main>
