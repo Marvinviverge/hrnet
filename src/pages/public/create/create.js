@@ -13,6 +13,7 @@ import './create.css';
 
 const Create = () => {
     const dispatch = useDispatch()
+
     const [isModalOpen, setModalOpen] = useState(false);
 
     const initialValues = {
@@ -59,19 +60,20 @@ const Create = () => {
         }
 
         dispatch({ type: "Employees/addEmployee", payload: { newEmployee } })
-        setModalOpen(true);
+        openModale()
     };
 
     const closeModale = () => {
         setModalOpen(false);
     }
+    const openModale = () => {
+        setModalOpen(true);
+    }
 
     return (
         <main className='main'>
 
-            {isModalOpen && (
-                <Modale buttonFunction={closeModale} messageButton='Fermer' messageModale='Employee created !' />
-            )}
+            <Modale isOpen={isModalOpen} buttonFunction={closeModale} messageButton='Fermer' messageModale='Employee created !' />
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form className='form'>
                     <fieldset className='create'>
