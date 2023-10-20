@@ -12,7 +12,6 @@ import './create.css';
 
 
 const Create = () => {
-    console.log(Modale)
     const dispatch = useDispatch()
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -63,9 +62,16 @@ const Create = () => {
         setModalOpen(true);
     };
 
+    const closeModale = () => {
+        setModalOpen(false);
+    }
+
     return (
         <main className='main'>
 
+            {isModalOpen && (
+                <Modale buttonFunction={closeModale} messageButton='Fermer' messageModale='Employee created !' />
+            )}
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 <Form className='form'>
                     <fieldset className='create'>
@@ -147,9 +153,6 @@ const Create = () => {
                                 <Field className="wrapper-padding" name="zipcode" type="text" placeholder="Zip Code" autoComplete="off"></Field>
                                 <ErrorMessage name="zipcode" component="p" className='errorMessage' />
                             </div>
-                            {isModalOpen && (
-                                <Modale messageBouton='Fermer' messageModale='Employee created !' />
-                            )}
                             <button className="save-button" type='submit'>Save</button>
                         </fieldset>
                     </fieldset>
