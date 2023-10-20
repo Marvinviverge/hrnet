@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { departmentOptions } from '@/assets/datas/department.datas.js';
@@ -7,11 +7,14 @@ import { format } from 'date-fns';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
+import { Modale } from 'marvi-modale';
 import './create.css';
 
 
 const Create = () => {
+    console.log(Modale)
     const dispatch = useDispatch()
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const initialValues = {
         firstname: "",
@@ -57,6 +60,7 @@ const Create = () => {
         }
 
         dispatch({ type: "Employees/addEmployee", payload: { newEmployee } })
+        setModalOpen(true);
     };
 
     return (
@@ -143,6 +147,9 @@ const Create = () => {
                                 <Field className="wrapper-padding" name="zipcode" type="text" placeholder="Zip Code" autoComplete="off"></Field>
                                 <ErrorMessage name="zipcode" component="p" className='errorMessage' />
                             </div>
+                            {isModalOpen && (
+                                <Modale messageBouton='Fermer' messageModale='Employee created !' />
+                            )}
                             <button className="save-button" type='submit'>Save</button>
                         </fieldset>
                     </fieldset>
