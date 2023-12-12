@@ -54,7 +54,7 @@ const Table = () => {
                 <TextField label="Rechercher" variant="outlined" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
             </Box>
             <Box sx={{ height: 500, width: '100%' }}>
-                <DataGrid rows={rows} columns={columns} pageSizeOptions={[5, 10, 25, 50, 100]} disableRowSelectionOnClick />
+                <DataGrid aria-label="grid" rows={rows} columns={columns} pageSizeOptions={[5, 10, 25, 50, 100]} disableRowSelectionOnClick />
             </Box>
         </div>
     );

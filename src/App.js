@@ -1,6 +1,6 @@
-import '@/assets/css/App.css';
+import './assets/css/App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import PublicRouter from '@/pages/public/publicRouter.js';
+import PublicRouter from './pages/public/publicRouter.js';
 
 function App() {
   return (

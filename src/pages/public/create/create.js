@@ -82,17 +82,17 @@ const Create = () => {
                         <div className='identity'>
                             <div className="input-wrapper">
                                 <label htmlFor="firstname">First Name</label>
-                                <Field className="wrapper-padding" name="firstname" type="text" placeholder="First Name" autoComplete="off"></Field>
+                                <Field className="wrapper-padding" id="firstname" name="firstname" type="text" placeholder="First Name" autoComplete="off"></Field>
                                 <ErrorMessage name="firstname" component="p" className='errorMessage' />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="lastname">Last Name</label>
-                                <Field className="wrapper-padding" name="lastname" type="text" placeholder="Last Name" autoComplete="off"></Field>
+                                <Field className="wrapper-padding" id="lastname" name="lastname" type="text" placeholder="Last Name" autoComplete="off"></Field>
                                 <ErrorMessage name="lastname" component="p" className='errorMessage' />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="birth">Date of Birth</label>
-                                <Field className="wrapper-padding" name="birth" type="text" placeholder="Date of Birth" autoComplete="off">
+                                <Field className="wrapper-padding" id="birth" name="birth" type="text" placeholder="Date of Birth" autoComplete="off">
                                     {({ field, form }) => (
                                         <DatePicker dateFormat="dd/MM/yyyy" className="wrapper-padding" placeholderText="Date of Birth" id="birth" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
                                     )}
@@ -101,7 +101,7 @@ const Create = () => {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="startdate">Start Date</label>
-                                <Field className="wrapper-padding" name="startdate" type="text" placeholder="Start Date" autoComplete="off">
+                                <Field className="wrapper-padding" id="startdate" name="startdate" type="text" placeholder="Start Date" autoComplete="off">
                                     {({ field, form }) => (
                                         <DatePicker dateFormat="dd/MM/yyyy" className="wrapper-padding" placeholderText="Start Date" id="startdate" {...field} selected={field.value} onChange={(date) => form.setFieldValue(field.name, date)} />
                                     )}
@@ -114,12 +114,12 @@ const Create = () => {
                             <legend>Address</legend>
                             <div className="input-wrapper">
                                 <label htmlFor="street">Street</label>
-                                <Field className="wrapper-padding" name="street" type="text" placeholder="Street" autoComplete="off"></Field>
+                                <Field className="wrapper-padding" id="street" name="street" type="text" placeholder="Street" autoComplete="off"></Field>
                                 <ErrorMessage name="street" component="p" className='errorMessage' />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="state">State</label>
-                                <Field as='select' name="state">
+                                <Field as='select' name="state" id="state">
                                     <option disabled value="">Choose state</option>
                                     {
                                         statesOptions.map((option, index) => {
@@ -133,12 +133,12 @@ const Create = () => {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="city">City</label>
-                                <Field className="wrapper-padding" name="city" type="text" placeholder="City" autoComplete="off"></Field>
+                                <Field className="wrapper-padding" id="city" name="city" type="text" placeholder="City" autoComplete="off"></Field>
                                 <ErrorMessage name="city" component="p" className='errorMessage' />
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="department">Department</label>
-                                <Field as='select' name="department">
+                                <Field as='select' aria-label="department" id="department" name="department">
                                     <option disabled value="">Choose a department</option>
                                     {
                                         departmentOptions.map((option, index) => {
@@ -152,7 +152,7 @@ const Create = () => {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="zipcode">Zip Code</label>
-                                <Field className="wrapper-padding" name="zipcode" type="text" placeholder="Zip Code" autoComplete="off"></Field>
+                                <Field className="wrapper-padding" aria-label="zipcode" id="zipcode" name="zipcode" type="text" placeholder="Zip Code" autoComplete="off"></Field>
                                 <ErrorMessage name="zipcode" component="p" className='errorMessage' />
                             </div>
                             <button className="save-button" type='submit'>Save</button>

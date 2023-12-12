@@ -11,7 +11,7 @@
     padding: 50px;
     gap: 50px;
     border-radius: 5px;
-    border: 3px solid #93AD18;
+    border: 3px solid #687C0E;
 }
 
 .create p {
@@ -34,11 +34,11 @@
     padding: 30px;
     gap: 20px;
     border-radius: 5px;
-    border: 2px solid #93AD18;
+    border: 2px solid #687C0E;
 }
 
 legend {
-    color: #93AD18;
+    color: #687C0E;
     font-size: 30px;
     font-family: 'Courgette';
 }
@@ -53,7 +53,7 @@ legend {
 .input-wrapper input {
     border-radius: 20px;
     height: 30px;
-    border: 1px solid #93AD18;
+    border: 1px solid #687C0E;
 }
 
 .input-wrapper label {
@@ -88,4 +88,12 @@ legend {
     cursor: pointer;
     /*border: 1px solid black;*/
     box-shadow: rgba(0, 0, 0, 0.45) 0px 2px 40px 2px;
+}
+
+.modale {
+    padding-top: 40px;
+    height: 30%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
 }
