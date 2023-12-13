@@ -1,3 +1,14 @@
+# Bienvenue sur HRNET ! L'application qui permets à notre entreprise de créer de nouveaux employés, de visualiser la liste des employés déjà existant et de les filtrer.
+
+## Instructions pour lancer le projet:
+
+** Forke and clone the repository : https://github.com/Marvinviverge/hrnet
+** Open a new terminal
+** Run npm install: This will install all dependencies.
+** Then run the npm run start command to run the application on http://localhost:3000
+
+### Cette application a été développée avec CREATE REACT APP ! ###
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
