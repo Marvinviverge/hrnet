@@ -119,7 +119,7 @@ const Create = () => {
                             </div>
                             <div className="input-wrapper">
                                 <label htmlFor="state">State</label>
-                                <Field as='select' name="state" id="state">
+                                <Field as='select' aria-label="state" name="state" id="state">
                                     <option disabled value="">Choose state</option>
                                     {
                                         statesOptions.map((option, index) => {
