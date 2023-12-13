@@ -5,6 +5,11 @@ import { Home, Create, Error } from '@/pages/public/index.js'
 
 import Layout from '@/layout/layout.js';
 
+/**
+ * Composant React représentant le routeur public de l'application.
+ * @function PublicRouter
+ * @returns {React.Component} Composant React créant le routeur public.
+ */
 const PublicRouter = () => {
     return (
         <Routes>

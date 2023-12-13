@@ -11,11 +11,42 @@ import { Modale } from 'marvi-modale';
 import './create.css';
 
 
+/**
+ * Composant React pour la création d'un employé.
+ * @function Create
+ * @returns {React.Component} Composant React pour la création d'un employé.
+ */
 const Create = () => {
+
+    /**
+     * Récupère l'instance de dispatch pour le store Redux.
+     * @function
+     * @returns {Object} L'instance de dispatch.
+     */
     const dispatch = useDispatch()
 
+    /**
+     * Gère l'état de l'ouverture ou de la fermeture de la modale.
+     * @function
+     * @param {boolean} isOpen - Indique si la modale est ouverte ou fermée.
+     * @returns {void}
+     */
     const [isModalOpen, setModalOpen] = useState(false);
 
+    /**
+     * Initialise les valeurs par défaut pour le formulaire.
+     * @constant
+     * @type {Object}
+     * @property {string} firstname - Le prénom par défaut.
+     * @property {string} lastname - Le nom par défaut.
+     * @property {string} birth - La date de naissance par défaut.
+     * @property {string} startdate - La date de début par défaut.
+     * @property {string} street - L'adresse par défaut.
+     * @property {string} state - L'état par défaut.
+     * @property {string} city - La ville par défaut.
+     * @property {string} department - La section par défaut.
+     * @property {number} zipcode - Le code postal par défaut.
+     */
     const initialValues = {
         firstname: "",
         lastname: "",
@@ -28,6 +59,11 @@ const Create = () => {
         zipcode: ""
     };
 
+    /**
+     * Schéma de validation pour les champs du formulaire.
+     * @constant
+     * @type {Object}
+     */
     const validationSchema = Yup.object().shape({
         firstname: Yup.string().required("Veuillez entrer un prénom"),
         lastname: Yup.string().required("Veuillez entrer un nom"),
@@ -40,10 +76,24 @@ const Create = () => {
         zipcode: Yup.number().required("Veuillez entrer un code postal"),
     });
 
+    /**
+     * Convertit une date en format ISO en fonction du fuseau horaire.
+     * @function
+     * @param {string} date - La date à formater.
+     * @param {string} timeZone - Le fuseau horaire cible.
+     * @returns {string} La date formatée en format ISO.
+     */
     const formatDateToISO = (date, timeZone) => {
         return format(new Date(date), 'dd-MM-yyyy', { timeZone });
     };
 
+
+    /**
+     * Gère la soumission du formulaire, formatte les données et déclenche l'action Redux.
+     * @function
+     * @param {Object} data - Les données du formulaire.
+     * @returns {void}
+     */
     const onSubmit = (data) => {
         const timeZone = 'Europe/Paris';
 
@@ -63,9 +113,20 @@ const Create = () => {
         openModale()
     };
 
+    /**
+     * Ferme la modale.
+     * @function
+     * @returns {void}
+     */
     const closeModale = () => {
         setModalOpen(false);
     }
+
+    /**
+     * Ouvre la modale.
+     * @function
+     * @returns {void}
+     */
     const openModale = () => {
         setModalOpen(true);
     }

@@ -4,6 +4,11 @@ import Logo from '@/assets/img/logo.png'
 
 import './header.css'
 
+/**
+ * Composant React représentant le header de l'application.
+ * @function Header
+ * @returns {React.Component} Composant React pour le header.
+ */
 const Header = () => {
     return (
         <header className='header'>

@@ -5,11 +5,34 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useSelector } from 'react-redux';
 import { employeeSelector } from '@/redux/employeeSelector';
 
+/**
+ * Composant React représentant une table pour afficher les données des employés.
+ * @function Table
+ * @returns {React.Component} Composant React pour la table d'affichage des employés.
+ */
 const Table = () => {
+
+    /**
+     * Sélecteur Redux pour obtenir la liste des employés depuis le store.
+     * @type {Object}
+     * @property {Array} employeesList - Liste des employés.
+     */
     const { employeesList } = useSelector(employeeSelector);
 
+    /**
+     * État local pour stocker le texte de l'input recherche.
+     * @type {Array}
+     */
     const [searchText, setSearchText] = useState('');
 
+    /**
+     * Formatages des colonnes de la table.
+     * @type {Array}
+     * @property {string} field - Champ de données.
+     * @property {string} headerName - Nom de l'en-tête.
+     * @property {number} width - Largeur de la colonne.
+     * @property {boolean} editable - Indique si la colonne est éditable.
+     */
     const columns = [
         { field: 'id', headerName: 'ID', width: 150 },
         { field: 'firstname', headerName: 'First Name', width: 150, editable: true },
@@ -23,6 +46,10 @@ const Table = () => {
         { field: 'zipcode', headerName: 'Zip Code', width: 150, editable: true },
     ];
 
+    /**
+     * Fonction pour filtrer les lignes en fonction du texte de recherche.
+     * @type {Array}
+     */
     const filteredRows = employeesList.filter(e =>
         e.firstname.toLowerCase().includes(searchText.toLowerCase()) ||
         e.lastname.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -35,6 +62,20 @@ const Table = () => {
         e.startdate.includes(searchText)
     );
 
+    /**
+     * Lignes formatées pour la DataGrid (après filtrage).
+     * @type {Array}
+     * @property {number} id - Id de la ligne.
+     * @property {string} firstname - Prénom de l'employé.
+     * @property {string} lastname - Nom de l'employé.
+     * @property {string} startdate - Date de début de l'employé.
+     * @property {string} department - Département de l'employé.
+     * @property {string} birth - Date de naissance de l'employé.
+     * @property {string} street - Rue de l'employé.
+     * @property {string} city - Ville de l'employé.
+     * @property {string} state - État de l'employé.
+     * @property {string} zipcode - Code postal de l'employé.
+     */
     const rows = filteredRows.map((e, index) => ({
         id: index,
         firstname: e.firstname,
